@@ -4,6 +4,7 @@ from pyramid.security import (
     Authenticated,
     Everyone,
 )
+from pyramid_sacrud import PYRAMID_SACRUD_HOME, PYRAMID_SACRUD_VIEW
 
 from .models import User
 
@@ -22,6 +23,7 @@ class MyAuthenticationPolicy(AuthTktAuthenticationPolicy):
             principals.append(Authenticated)
             principals.append(str(user.id))
             principals.append('role:' + user.role)
+
         return principals
 
 
